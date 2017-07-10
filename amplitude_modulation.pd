@@ -1,0 +1,29 @@
+#N canvas 458 23 684 486 10;
+#X obj 68 50 hsl 128 15 50 500 0 0 empty empty carrier\ frequency 20
+5 0 10 -241621 -1 -1 4600 1;
+#X obj 68 70 osc~;
+#X obj 71 177 *~;
+#X obj 63 268 output~;
+#X floatatom 124 82 5 0 0 0 - - -, f 5;
+#X obj 168 99 hsl 160 25 1 50 0 0 empty empty modulating_frequency
+20 5 0 10 -155456 -1 -1 5900 1;
+#X obj 128 142 osc~;
+#X floatatom 167 168 5 0 0 0 - - -, f 5;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array wave 3000 float 0 black black;
+#X coords 0 1 2999 -1 200 140 1;
+#X restore 323 175 graph;
+#X obj 192 269 tabwrite~ wave;
+#X obj 196 234 metro 200;
+#X obj 199 199 tgl 15 0 empty empty see\ it 17 6 0 10 -94164 -1 -1
+0 1;
+#X connect 0 0 1 0;
+#X connect 0 0 4 0;
+#X connect 1 0 2 0;
+#X connect 2 0 9 0;
+#X connect 2 0 3 0;
+#X connect 5 0 6 0;
+#X connect 5 0 7 0;
+#X connect 6 0 2 1;
+#X connect 10 0 9 0;
+#X connect 11 0 10 0;
