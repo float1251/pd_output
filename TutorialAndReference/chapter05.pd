@@ -1,0 +1,124 @@
+#N canvas 197 198 974 456 10;
+#X obj 25 394 loadbang;
+#X msg 25 416 read -resize soundfiles/snare.wav snare;
+#X obj 25 438 soundfiler;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array snare 6276 float 0 black black;
+#X coords 0 1 6275 -1 100 70 1;
+#X restore 295 387 graph;
+#X obj 183 141 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 530 301 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 493 330 tabplay~ snare;
+#X obj 561 42 vsl 15 100 0 1 0 0 empty empty empty 0 -9 0 10 -4096
+-1 -1 7200 1;
+#X obj 582 42 vsl 15 100 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 2600 1;
+#X obj 603 43 vsl 15 100 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 3500 1;
+#X obj 626 42 vsl 15 100 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 2300 1;
+#X obj 650 42 vsl 15 100 0 1 0 0 empty empty empty 0 -9 0 10 -4096
+-1 -1 6700 1;
+#X obj 671 43 vsl 15 100 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 2500 1;
+#X obj 694 42 vsl 15 100 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 1600 1;
+#X obj 718 43 vsl 15 100 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 2700 1;
+#X obj 740 44 vsl 15 100 0 1 0 0 empty empty empty 0 -9 0 10 -4096
+-1 -1 6300 1;
+#X obj 762 42 vsl 15 100 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 2400 1;
+#X obj 782 42 vsl 15 100 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 2500 1;
+#X obj 803 44 vsl 15 100 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 2400 1;
+#X obj 823 44 vsl 15 100 0 1 0 0 empty empty empty 0 -9 0 10 -4096
+-1 -1 6700 1;
+#X obj 845 44 vsl 15 100 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 2500 1;
+#X obj 865 45 vsl 15 100 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 2000 1;
+#X obj 886 44 vsl 15 100 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 2300 1;
+#X obj 561 191 pack 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X obj 558 213 list split;
+#X msg 589 242 \$1;
+#X floatatom 589 264 5 0 0 0 - - -, f 5;
+#X floatatom 374 253 5 0 0 0 - - -, f 5;
+#X obj 375 274 t b f;
+#X obj 375 296 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 626 310 t b f;
+#X obj 492 431 dac~;
+#X floatatom 531 357 5 0 0 0 - - -, f 5;
+#X obj 491 394 *~ 0.5;
+#X obj 510 130 f;
+#X obj 589 285 sel 0;
+#N canvas 752 97 569 441 counter 1;
+#X floatatom 221 47 5 0 0 0 BPM - -, f 5;
+#X text 323 67 16分音符の長さを求める;
+#X floatatom 221 90 5 0 0 0 - - -, f 5;
+#X obj 138 127 metro 100;
+#X obj 221 68 expr 60000/$f1/4;
+#X obj 138 149 f 0;
+#X obj 138 171 + 1;
+#X obj 138 193 sel 16;
+#X msg 138 215 0;
+#X obj 41 64 inlet;
+#X obj 227 181 outlet;
+#X obj 142 15 inlet;
+#X connect 0 0 4 0;
+#X connect 2 0 3 1;
+#X connect 3 0 5 0;
+#X connect 4 0 2 0;
+#X connect 5 0 6 0;
+#X connect 5 0 10 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 7 1 5 1;
+#X connect 8 0 5 1;
+#X connect 9 0 3 0;
+#X connect 11 0 0 0;
+#X restore 258 206 pd counter;
+#X floatatom 290 147 5 0 0 0 BPM - -, f 5;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 4 0 36 0;
+#X connect 5 0 6 0;
+#X connect 6 0 33 0;
+#X connect 7 0 34 1;
+#X connect 8 0 23 1;
+#X connect 9 0 23 2;
+#X connect 10 0 23 3;
+#X connect 11 0 23 4;
+#X connect 12 0 23 5;
+#X connect 13 0 23 6;
+#X connect 14 0 23 7;
+#X connect 15 0 23 8;
+#X connect 16 0 23 9;
+#X connect 17 0 23 10;
+#X connect 18 0 23 11;
+#X connect 19 0 23 12;
+#X connect 20 0 23 13;
+#X connect 21 0 23 14;
+#X connect 22 0 23 15;
+#X connect 23 0 24 0;
+#X connect 24 1 25 0;
+#X connect 25 0 26 0;
+#X connect 26 0 35 0;
+#X connect 27 0 28 0;
+#X connect 28 0 29 0;
+#X connect 28 1 24 1;
+#X connect 29 0 34 0;
+#X connect 30 0 5 0;
+#X connect 30 1 32 0;
+#X connect 32 0 33 1;
+#X connect 33 0 31 0;
+#X connect 33 0 31 1;
+#X connect 34 0 23 0;
+#X connect 35 1 30 0;
+#X connect 36 0 27 0;
+#X connect 37 0 36 1;
